@@ -1,5 +1,5 @@
 # multirate class for interpolation and decimation 
-# Last modification by Marko Kosunen, marko.kosunen@aalto.fi, 03.11.2017 10:21
+# Last modification by Marko Kosunen, marko.kosunen@aalto.fi, 03.11.2017 17:44
 import numpy as np
 import scipy.signal as sig
 import tempfile
@@ -76,6 +76,7 @@ def generate_interpolation_filterlist(argdict={'interp_factor':1}):
         print("Interpolation ratio is 1. Generated unit coefficient")
         filterlist.append([1.0]) #Ensure correct operation in unexpected situations.
     return filterlist
+
 
 class multirate(thesdk):
     pass    
