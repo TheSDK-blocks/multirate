@@ -52,7 +52,7 @@ def generate_interpolation_filterlist(argdict={'interp_factor':1}):
             #print(fsample)
             if  fsample/(0.5)<= 8: #FIR is needed
                 msg= "BW to sample rate ratio is now %s" %(fsample/0.5)
-                #self.print_log({'type': 'I', 'msg':msg })
+                #self.print_log(type='I', msg=msg )
                 msg="Interpolation by %i" %(fact)
                 #thesdk.print_log({'type': 'I', 'msg':msg })
                 bands=np.array([0, BW, (fsample*fact/2-BW), fact*fsample/2])
@@ -83,9 +83,9 @@ class multirate(thesdk):
 #def __init__(self,*arg): 
 #    self.proplist = [ 'Rs' ];    #properties that can be propagated from parent
 #    self.Rs = 1;                 # sampling frequency
-#    self.iptr_A = refptr();
+#    self.iptr_A = IO();
 #    self.model='py';             #can be set externally, but is not propagated
-#    self._Z = refptr();
+#    self._Z = IO();
 #    self._classfile=__file__
 #    if len(arg)>=1:
 #        parent=arg[0]
@@ -132,17 +132,17 @@ class multirate(thesdk):
 #        par=False
 #
 #    if self.model=='py':
-#        out=np.array(self.iptr_A.Value)
+#        out=np.array(self.iptr_A.Data)
 #        if par:
 #            queue.put(out)
-#        self._Z.Value=out
+#        self._Z.Data=out
 #    else: 
 #      try:
 #          os.remove(self._infile)
 #      except:
 #          pass
 #      fid=open(self._infile,'wb')
-#      np.savetxt(fid,np.transpose(self.iptr_A.Value),fmt='%.0f')
+#      np.savetxt(fid,np.transpose(self.iptr_A.Data),fmt='%.0f')
 #      #np.savetxt(fid,np.transpose(inp),fmt='%.0f')
 #      fid.close()
 #      while not os.path.isfile(self._infile):
@@ -165,7 +165,7 @@ class multirate(thesdk):
 #      fid.close()
 #      if par:
 #          queue.put(out)
-#      self._Z.Value=out
+#      self._Z.Data=out
 #      os.remove(self._infile)
 #      os.remove(self._outfile)
 
