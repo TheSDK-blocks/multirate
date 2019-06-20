@@ -1,13 +1,8 @@
 # multirate class for interpolation and decimation 
-# Last modification by Marko Kosunen, marko.kosunen@aalto.fi, 03.11.2017 17:44
+# Last modification by Marko Kosunen, marko.kosunen@aalto.fi, 20.06.2019 20:53
 import numpy as np
 import scipy.signal as sig
-import tempfile
-import subprocess
-#import shlex
-#import time
 
-from refptr import *
 from thesdk import *
 
 #function for factoring integers
